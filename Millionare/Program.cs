@@ -16,12 +16,15 @@ namespace Millionare
     }
     public struct questionare
     {
+        public string des1;
         public string questions;
+        public string emptyline;
         public string a;
         public string b;
         public string c;
         public string d;
         public string ans;
+        public string des2;
     }
     public struct money
     {
@@ -248,6 +251,7 @@ namespace Millionare
                         Environment.Exit(-1);
                         break;
                     default:
+                        menu(People, Finalists, Chosen, answers, rewards);
                         break;
                 }
             } while (count != 1);
@@ -317,12 +321,15 @@ namespace Millionare
 
             for (int i = 0; i < 12; i++)
             {
+                answers[i].des1 = sr.ReadLine();
                 answers[i].questions = sr.ReadLine();
+                
                 answers[i].a = sr.ReadLine();
                 answers[i].b = sr.ReadLine();
                 answers[i].c = sr.ReadLine();
                 answers[i].d = sr.ReadLine();
-                answers[i].ans = sr.ReadLine();
+                answers[i].ans=  sr.ReadLine();
+                answers[i].des2 = sr.ReadLine();
             }
             sr.Close();
         }
@@ -361,28 +368,36 @@ namespace Millionare
 
                 string Uinput;
                 Console.Clear();
-                //Console.WriteLine(" ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐");
-                Console.WriteLine($" {answers[count].questions}\n ");
+                
+                Console.WriteLine($" {answers[count].des1}");
+                Console.WriteLine($" {answers[count].questions}");
+                
                 Console.WriteLine($" {answers[count].a}");
                 Console.WriteLine($" {answers[count].b}");
                 Console.WriteLine($" {answers[count].c}");
                 Console.WriteLine($" {answers[count].d}");
-                //Console.WriteLine(" └──────────────────────────────────────────────────────────────────────────────────────────────────────────┘");
-                Console.Write("\n:");
-                Uinput=Console.ReadLine();
+                Console.WriteLine($" {answers[count].des1}");
+
+                Console.Write("\n  :");
+                Uinput=Console.ReadLine().ToUpper();
                 if (Uinput == answers[count].ans)
                 {
+
+                    Console.WriteLine($"\n {answers[count].des1}");
                     Console.Clear();
-                    Console.WriteLine("Correct");
+                    Console.WriteLine($" Correct you have just won {rewards[i].main}");
+                    Console.WriteLine($" {answers[count].des1}\n");
                     Thread.Sleep(1000);
                     count++;
                 }
                 else
                 {
+                    Console.WriteLine($" {answers[count].des1}");
                     Console.WriteLine("That is the wrong answer");
                     Console.WriteLine($"The correct answer was {answers[count].ans}");
                     Console.WriteLine($"You are going home with $ {rewards[i].main}");
                     Thread.Sleep(3000);
+                    Console.WriteLine($" {answers[count].des2}\n");
                     menu(People, Finalists, Chosen, answers,rewards);
                 }
                 
