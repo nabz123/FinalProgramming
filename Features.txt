@@ -1,0 +1,22 @@
+Menu:
+If the user input something other than whats in the switch the progran will deny the input and will ask the user
+to reinput something new
+
+Contestants
+Displays all the users
+
+Edit Contestants
+Displays all the users and give the user the choice to edit a person.
+
+Gerneraing finalist:
+Generating 10 finalists from the 30 the finalists, then from the 10 generated finalists 1 is selected.
+
+Instructions
+Displays the basic rules to the user.
+
+Play game
+If the user gets the right answer the user will advance onto the next question, if the user gets the answer wrong
+they'll go home with the value from the previous question.
+
+Exit game
+Thanks the user and exits the game.
